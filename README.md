@@ -1,7 +1,7 @@
 # `Special-Spoon` - FoodieHub: Recipes and Profile Management
 
 
-![FoodieHub Logo]()
+![FoodieHub](https://github.com/chetankumar9903/Special-Spoon/assets/126199153/43ddde98-ad16-480a-aba0-9a020f38afa7)
 
 [Visit FoodieHub]()
 

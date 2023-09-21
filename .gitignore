@@ -1,3 +1,4 @@
 .env
 /node_modules
 Imp-points about this.txt
+package-lock.json

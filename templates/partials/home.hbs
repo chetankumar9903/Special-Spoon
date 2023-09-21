@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Special-Spoon</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <style>
+   body {
+      background-color: #081b29;
+      color: #fff;
+    }
+    .down{
+        position: relative;
+        top: 55px;
+    }
+
+    /* Custom CSS */
+.img-smaller {
+    width: 50px;
+    height: 50px;
+    margin-right: 5px;
+}
+/* Custom CSS */
+.img-enlarge {
+  max-width: 100%;
+  height: auto;
+  width: auto\9; /* IE8 support */
+  max-height: 600px; /* Set your desired maximum height */
+  display: block;
+  margin: 0 auto;
+}
+
+
+  </style>
+</head>
+<body>
+
+
+
+<div class="container mt-5 mb-4">
+  <div class="row down">
+    <div class="col-md-12">
+      <!-- Add content for the authentication system here -->
+      <h2>Welcome to `Special-Spoon`- FoodieHub: Recipes and Profile Management </h2>
+      <h3>Hi , {{defaultIfUndefined userData.Username "Buddy"}} !</h3>
+      <p>Explore and enjoy our platform. Login or register to access exclusive content of Kitchen Magic Recipes.</p>
+       <a href="/secret" class="btn btn-danger">Update Profile</a>
+    <a href="/recipe" class="btn btn-success" target="_blank">Go to Recipe Page</a>
+   
+    </div>
+    <div class="col-md-12 pt-4">
+      <!-- Add images or additional information here -->
+      {{!-- <img src="/img/photo.webp" alt="Your Image" class="img-fluid img-enlarge mb-5"> --}}
+      <img src="/img/recipe.jpg" alt="Your Image" class="img-fluid img-enlarge mx-auto d-block mb-5" style="max-width: 100%;">
+
+    </div>
+  </div>
+</div>
+
+<footer class="bg-dark text-white py-3 mt-3">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h4>Services : </h4>
+        <ul class="list-unstyled">
+          <li>Learn how to make a new dish</li>
+          <li>Add your know recipe here</li>
+          <li>See others Recipes also</li>
+          <li>Various Categories</li>
+        </ul>
+      </div>
+    <div class="col-md-6">
+    <div class="row">
+    <div class="col-md-12">
+      <h4>Follow Us:</h4>
+    </div>
+    <div class="col-md-12">
+      <a href="/" class="text-white mx-2" target="_blank">Facebook</a>
+    </div>
+    <div class="col-md-12">
+      <a href="/" class="text-white mx-2" target="_blank">Twitter</a>
+    </div>
+    <div class="col-md-12">
+      <a href="/" class="text-white mx-2" target="_blank">LinkedIn</a>
+    </div>
+    <div class="col-md-12">
+      <a href="/" class="text-white mx-2" target="_blank">Instagram</a>
+    </div>
+    <div class="col-md-12">
+      <a href="/" class="text-white mx-2" target="_blank">Additional Link</a>
+    </div>
+  </div>
+</div>
+
+
+      </div>
+    </div>
+    
+      <div class="col-md-12 text-center mt-4 mb-4">
+        <p>&copy; 2023 Special-Spoon. All Rights Reserved.</p>
+      </div>
+    
+  </div>
+</footer>
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HgZn012YFo+ogSTIlGtCzHJz4n0PZT5z7x2uC5c1SpJSw5kqqc5eOJw5v5xUt5VME" crossorigin="anonymous"></script>
+</body>
+</html>

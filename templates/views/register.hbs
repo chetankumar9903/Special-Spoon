@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special-Spoon-Registration</title>
+    
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    {{!-- {{>navbar}} --}}
+     {{>newnavbar}}
+    <!-- Login Form -->
+    <div class="wrapper active">
+        <span class="bg-animate"></span>
+        <span class="bg-animate2"></span>
+
+        <div class="form-box login">
+            <h2 class="animation" style="--i:0; --j:21">Login</h2>
+            <form action="/login" method="Post">
+                <div class="input-box animation"  style="--i:1; --j:22">
+                    <input type="text"  required name="Username" value="">
+                    <label>Username</label>
+                    <i class='bx bxs-user'></i> 
+                </div>
+                <div class="input-box animation"  style="--i:2; --j:23">
+                    <input type="password" required name="Password" value="">
+                    <label>Password</label>
+                    <i class='bx bxs-lock-alt'></i>
+                </div>
+                <button type="submit" class="btn animation" value="login"  style="--i:3; --j:24">Login</button>
+
+                <div class="logreg-link mt-3 animation" style="--i:4; --j:25">
+                    <input type="checkbox" value="remember-me">
+                    <label >Remember me | </label>
+                <span><a href="#">Need help? </a></span><span class="clearfix"></span>
+                </div>
+
+                <div class="logreg-link animation"  style="--i:4; --j:25">
+                    <p>Don't have an account ? <a href="#" class="register-link">Sign Up</a></p>
+                </div>
+            </form>
+        </div>
+        {{!-- rightside part of login form --}}
+       <div class="info-text login">
+        <h2 class="animation" style="--i:0; --j:20;">Welcome Back!</h2>
+        <p class="animation" style="--i:1; --j:21;">Fill Login Details </p>
+       </div> 
+
+       {{!-- Registration form --}}
+        <div class="form-box register">
+            
+            <h2 class="animation"  style="--i:17; --j:0;">Sign Up</h2>
+            <form action="/register" method="POST">
+                <div class="input-box animation" style="--i:18; --j:1;">
+                    <input type="text" required name="Username" value="">
+                    <label>Username</label>
+                    <i class='bx bxs-user'></i> 
+                </div>
+                <div class="input-box animation" style="--i:19; --j:2;">
+                    <input type="email" required name="Email" value="">
+                    <label>Email</label>
+                    <i class='bx bxs-envelope' ></i>
+                </div>
+                <div class="input-box animation" style="--i:20; --j:3;">
+                    <input type="password" required name="Password" value="">
+                    <label>Password</label>
+                    <i class='bx bxs-lock-alt'></i>
+                </div>
+                <div class="input-box animation" style="--i:20; --j:3;">
+                    <input type="password" required name="Confirmpassword" value="" >
+                    <label>Confirm Password</label>
+                    <i class='bx bxs-lock-alt'></i>
+                </div>
+                <button type="submit" class="btn animation" value="Register"  style="--i:21; --j:4;">Sign Up</button>
+                <div class="logreg-link animation" style="--i:22; --j:5;">
+                    <p>Already have an account ? <a href="#" class="login-link">Sign In</a></p>
+                </div>
+            </form>
+        </div>
+
+            {{!-- left side part of registration form --}}
+       <div class="info-text register">
+        <h2 class="animation" style="--i:17; --j:0;">Welcome User!</h2>
+        <p class="animation"style="--i:18; --j:1" >Fill data to Sign Up </p>
+       </div> 
+
+
+    </div>
+   
+    <script src="js/script.js"></script>
+</body>
+</html>

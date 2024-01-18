@@ -5,7 +5,7 @@ const auth = async(req, res, next)=>{
     try {
         const token = req.cookies.jwt;
         const verifyuser=jwt.verify(token, process.env.SECRET_KEY);
-        console.log(verifyuser);
+        // console.log(verifyuser);
 
         const user=  await Register.findOne({_id:verifyuser._id});
         console.log(user.Username);   // any par can be print or whole also

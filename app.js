@@ -88,7 +88,7 @@ app.get("/recipe", auth, (req, res) => {
       const token3 = crypto.randomBytes(32).toString('hex'); // Modify this to match your token generation logic
 
       // Redirect the user to the recipe website with the token as a query parameter
-      res.redirect(`https://fine-pear-jellyfish-gear.cyclic.cloud/?token=${token3}`);   
+      res.redirect(`https://kitchen-magic-recipes.onrender.com/?token=${token3}`);   
       // for above file code refer git repo -> https://github.com/chetankumar9903/Kitchen-Magic-Recipes-Blog
    
 

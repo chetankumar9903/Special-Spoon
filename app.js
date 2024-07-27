@@ -110,6 +110,69 @@ app.get("/login", (req, res) => {
   res.render("login", { request: req });
 });
 
+
+
+
+
+//create new user in our database
+
+// Assuming you have an Express route to handle the form submission
+app.post('/update-profile', async (req, res) => {
+  try {
+    const { username, age, phone, address } = req.body;
+
+    // Check if the user already exists
+    const user = await Register.findOne({ Username: username });
+
+    if (!user) {
+      return res.status(404).send("User not found. Enter correct Username");
+    }
+
+    // Check if the user already has a profile
+    const existingProfile = await UserProfile.findOne({ username: username });
+
+    if (existingProfile) {
+      // Update the existing profile
+      existingProfile.age = age;
+      existingProfile.phone = phone;
+      existingProfile.address = address;
+      await existingProfile.save();
+    } else {
+      // Create a new user profile document
+      const userProfile = new UserProfile({
+        username: username,
+        age,
+        phone,
+        address,
+      });
+
+      // Save the user profile to the database
+      if(user){
+      await userProfile.save();
+      }
+    }
+
+    // Respond with success
+    // return res.status(200).json({ success: true, message: 'Profile updated successfully' });
+    const userData= {
+      Username: user.Username,
+      Email: user.Email,
+    }
+    res.render("secret", { userData})
+  } catch (error) {
+    // Handle errors
+    console.error(error);
+    return res.status(500).json({ success: false, message: 'Internal Server Error' });
+  }
+});
+
+
+
+
+
+
+
+
 app.post("/register", async (req, res) => {
   try {
     const { Username, Email, Password, Confirmpassword } = req.body;
@@ -121,6 +184,10 @@ app.post("/register", async (req, res) => {
         expires: new Date(Date.now() + 600000),
         httpOnly: true,
       });
+      // const userData= {
+      //   Username: req.body.Username,
+       
+      // }
       // res.status(201).render("index", { userData: { Username }, request: req });
       res.status(201).redirect("/");
     } else {

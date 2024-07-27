@@ -13,9 +13,20 @@ const jwt = require("jsonwebtoken");
 const cookieparser = require("cookie-parser");
 const auth = require("./src/middleware/auth");
 
+const session = require('express-session');
+const flash = require('connect-flash');
+
 const port = process.env.PORT || 3000;
 
+
+app.use(session({
+  secret: process.env.SECRET_KEY,
+  resave: false,
+  saveUninitialized: true
+}));
+
 // Middleware
+app.use(flash());
 app.use(express.json());
 app.use(cookieparser());
 app.use(express.urlencoded({ extended: false }));
@@ -111,12 +122,6 @@ app.get("/login", (req, res) => {
 });
 
 
-
-
-
-//create new user in our database
-
-// Assuming you have an Express route to handle the form submission
 app.post('/update-profile', async (req, res) => {
   try {
     const { username, age, phone, address } = req.body;
@@ -125,7 +130,8 @@ app.post('/update-profile', async (req, res) => {
     const user = await Register.findOne({ Username: username });
 
     if (!user) {
-      return res.status(404).send("User not found. Enter correct Username");
+      req.flash('error', 'User not found. Enter correct Username');
+      return res.redirect('/update-profile'); // Redirect to the update profile page
     }
 
     // Check if the user already has a profile
@@ -148,28 +154,30 @@ app.post('/update-profile', async (req, res) => {
 
       // Save the user profile to the database
       if(user){
-      await userProfile.save();
+        await userProfile.save();
       }
     }
 
-    // Respond with success
-    // return res.status(200).json({ success: true, message: 'Profile updated successfully' });
-    const userData= {
+    // Set success flash message
+    req.flash('success', 'Profile updated successfully');
+
+    const userData = {
       Username: user.Username,
       Email: user.Email,
-    }
-    res.render("secret", { userData})
+    };
+    
+    res.render("secret", { 
+      userData,
+      successMessage: req.flash('success'),
+      errorMessage: req.flash('error')
+    });
   } catch (error) {
     // Handle errors
     console.error(error);
-    return res.status(500).json({ success: false, message: 'Internal Server Error' });
+    req.flash('error', 'Internal Server Error');
+    res.redirect('/update-profile'); // Redirect to the update profile page
   }
 });
-
-
-
-
-
 
 
 
